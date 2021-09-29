@@ -1,6 +1,0 @@
-﻿  first.cpp
-C:\Users\Dell\Desktop\Codding\C++ Learning\VisualStudio\CppConsoleApp\first.cpp(105,84): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Dell\Desktop\Codding\C++ Learning\VisualStudio\CppConsoleApp\first.cpp(109,58): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Dell\Desktop\Codding\C++ Learning\VisualStudio\CppConsoleApp\first.cpp(118,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Dell\Desktop\Codding\C++ Learning\VisualStudio\CppConsoleApp\first.cpp(167,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  CppConsoleApp.vcxproj -> C:\Users\Dell\Desktop\Codding\C++ Learning\VisualStudio\CppConsoleApp\Debug\CppConsoleApp.exe
