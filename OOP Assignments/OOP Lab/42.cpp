@@ -22,7 +22,8 @@ class Employee
     public :
         Employee(char const *n,int s):salary(s)
         {
-            name = new char[strlen(n)];
+            int l = strlen(n);
+            name = new char[l];
             strcpy(name,n);
         }
         Employee(){}
@@ -52,7 +53,8 @@ class Manager:public Employee
     public:
         Manager(char const* n,int s,char const* t):Employee(n,s)
         {
-            type = new char[strlen(t)];
+            int l = strlen(t);
+            type = new char[l];
             strcpy(type,t);
         }
         Manager(){};
@@ -64,7 +66,8 @@ class Manager:public Employee
 void Manager::set_type(char const* t)
 {
     delete []type;
-    type = new char[strlen(t)];
+    int l = strlen(t);
+    type = new char[l];
     strcpy(type,t);
 }
 void Manager::printDetails()
@@ -103,7 +106,7 @@ int main()
     cout << endl;
 
     Employee ** arrp;
-    arrp = new Employee*[6];
+    arrp = new Employee* [6];
     
     Employee e1("Sikha Das",60000), e2("Koushik Saha",30000);
     Manager m1("Koushik Mahanta",150000,"Product Manager"), m2("Jason White",90000,"General Communication");
