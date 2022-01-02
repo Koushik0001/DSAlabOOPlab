@@ -16,7 +16,7 @@ int main()
 {
     struct node* head1 = NULL, *head2 = NULL;
 
-    printf("Enter the first Linked list:\n\t");
+    printf("Enter the Linked list:\n\t");
     head1 = create(head1);
     
     head2 = split(head1,head2);
