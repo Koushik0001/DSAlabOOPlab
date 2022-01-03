@@ -5,9 +5,10 @@ the resultant lists. */
 #include<stdio.h>
 #include<stdlib.h>
 struct node* insert(struct node* head, int d);
-struct node* create(struct node* head);
+void create(struct node** head);
 void print(struct node* head);
-struct node* split(struct node* head1,struct node* head2);
+void split(struct node** head1,struct node** head2);
+
 struct node
 {
     int data;
@@ -18,42 +19,11 @@ int main()
     struct node* head1 = NULL, *head2 = NULL;
 
     printf("Enter the Linked list:\n\t");
-    head1 = create(head1);
-    struct node* h1 = head1,*trace = h1,*h2 = head2 = NULL;
-    while(h1 != NULL)
-    {
-        printf("%d\n",h1->data);
-        if((h1->data)%2 == 0)
-        {
-            if(head2 = NULL)
-            {
-                head2 = h1;
-                h2 = head2;
-                h2->next = NULL;
-                trace->next = h1->next;
-                h1 = h1->next;
-            }
-            else
-            {
-                h2->next = h1;
-                h2 = h2->next;
-                h2->next = NULL;
-                trace->next = h1->next;
-                if(h1->next == NULL)
-                    trace->next == NULL;
-                h1 = h1->next;
-            }
-        }
-        else
-        {
-            trace = h1;
-            h1 = h1->next;
-        }
-
-    }
-    printf("First Half of the Linked list in: ");
+    create(&head1);
+    split(&head1,&head2);
+    printf("Linked list with  Odd Numbers : ");
     print(head1);
-    printf("\nSecond Half of the Linked list in: ");
+    printf("\nLinked list with Even Numbers : ");
     print(head2);
    return 0;
 }
@@ -79,7 +49,7 @@ struct node* insert(struct node* head, int d)
     }
     return head;
 }
-struct node* create(struct node* head)
+void create(struct node** head)
 {
     int n;
     int data;
@@ -90,9 +60,8 @@ struct node* create(struct node* head)
     for (int i=0; i<n; i++)
     {
         scanf("%d",&data);
-        head = insert(head,data);
+        *head = insert(*head,data);
     }
-    return head;    
 }
 void print(struct node* head)
 {
@@ -109,39 +78,42 @@ void print(struct node* head)
         printf("\n");
     }
 }
-/*struct node* split(struct node* head1,struct node* head2)
+void split(struct node** head1,struct node** head2)
 {
-    struct node* h1 = head1,*trace = h1,*h2 = head2 = NULL;
+    struct node* h1 = *head1,*trace = h1,*h2 = *head2 = NULL;
     while(h1 !=NULL)
     {
         if((h1->data)%2 == 0)
         {
-            if(head2 = NULL)
+            if(*head2 == NULL)
             {
-                printf("***********************\n");
-                head2 = h1;
-                h2 = head2;
-                h2->next = NULL;
-                trace->next = h1->next;
-                h1 = h1->next;
+                *head2 = h1;
+                h2 = *head2;
             }
             else
             {
-                printf("####################\n");
                 h2->next = h1;
                 h2 = h2->next;
+            }
+            if(h1 == *head1)
+            {
+                *head1 = h1->next;
+                trace = *head1;
+                h1 = h1->next;
                 h2->next = NULL;
+            }
+            else
+            {
                 trace->next = h1->next;
                 h1 = h1->next;
+                h2->next = NULL;
             }
         }
         else
         {
-            printf("&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n");
             trace = h1;
             h1 = h1->next;
         }
-
     }
-    return head2;
-}*/
+    //return head2;
+}
