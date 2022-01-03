@@ -115,5 +115,4 @@ void split(struct node** head1,struct node** head2)
             h1 = h1->next;
         }
     }
-    //return head2;
 }
