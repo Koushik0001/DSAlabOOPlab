@@ -10,6 +10,27 @@ type fmax(type t1, type t2)
 {
     return t1>t2 ? t1:t2;
 }
+template<>
+char* fmax (char* str1, char* str2)
+{
+    int stri1=0,stri2=0;
+    char ch = str1[stri1] ;
+    while(ch != '\0')
+    {
+        ch = str1[stri1];
+        stri1++;
+    }
+    ch = str2[stri2] ;
+    while(ch != '\0')
+    {
+        ch = str2[stri2];
+        stri2++;
+    }
+    if(stri1 > stri2)
+        return str1;
+    else
+        return str2;
+}
 template<class type>
 class complex
 {
@@ -37,5 +58,14 @@ int main()
     complex <float> c1(25,-10),c2(15,-20),c3;
     c3 = fmax(c1,c2);
     c3.display();
+
+    char const *str1,* str2, *str3;
+    str1 = new char[50];
+    str2 = new char[50];
+    str3 = new char[50];
+    str1 = "I study in ju";
+    str2 = "I study in IT Dept.";
+    str3 = fmax(str1,str2);
+    cout <<endl<< str3;
 }
 
